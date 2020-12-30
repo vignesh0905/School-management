@@ -1,0 +1,66 @@
+
+<%= render "admin/adminheader" %>
+<div class="container" style="width:60%; position:relative; top:100px;">
+<br/>
+<h3><b>Student Information<b></h3>
+<br/>
+<%= form_for @student, url: "/student/#{@student.id}", method: "PUT" do |d| %>
+
+    <div class="form-group">
+      <%= d.label :RollNo %>
+      <%= d.text_field :rollno, class:"form-control", placeholder:"Enter the RollNo" %>
+    </div><br/>
+
+    <div class="form-group">
+    <%= d.label :Name %>
+    <%= d.text_field :name, class:"form-control", placeholder:"Enter the Name" %>
+    </div><br/>
+
+  <div class="form-group">
+  <%= d.label :Standard %>
+  <%= d.select :classroom, Standard.all.map{ |std| [std.classroom, std.classroom ]}, include_blank: true %>
+  </div><br/>
+
+  <div class="form-group">
+  <%= d.label :Bloodgroup %>
+  <%= d.select :bloodgroup, Blood.all.map{ |b| [b.bloodname, b.bloodname]}, include_blank: true %>
+  </div><br/>
+
+  <div class="form-group">
+  <%= d.label :Usertype %>
+  <%= d.select(:usertype, options_for_select([["STUDENT", "STUDENT"], ["TEACHER", "TEACHER"]]), include_blank: true) %>
+  </div><br/>
+
+  <div class="form-group">
+    <%= d.label :Classteacher %>
+    <%= d.text_field :teachername, class:"form-control", placeholder:"Enter the Name" %>
+    </div><br/>
+
+  <div class="form-group">
+  <%= d.label :Tamil%>
+  <%= d.text_field :mark1, class:"form-control", placeholder:"Enter the mark" %>
+  </div><br/>
+
+  <div class="form-group">
+  <%= d.label :English %>
+  <%= d.text_field :mark2, class:"form-control", placeholder:"Enter the mark" %>
+  </div><br/>
+
+  <div class="form-group">
+  <%= d.label :Maths %>
+  <%= d.text_field :mark3, class:"form-control", placeholder:"Enter the mark" %>
+  </div><br/>
+
+  <div class="form-group">
+  <%= d.label :Science %>
+  <%= d.text_field :mark4, class:"form-control", placeholder:"Enter the mark" %>
+  </div><br/>
+
+  <div class="form-group">
+  <%= d.label :Social %>
+  <%= d.text_field :mark5, class:"form-control", placeholder:"Enter the mark" %>
+  </div><br/>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <% end %>
+</div>

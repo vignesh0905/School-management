@@ -1,0 +1,11 @@
+<%= render "admin/adminheader" %>
+
+<div class="container" style="width:60%; position:relative; top:100px;">
+<br/>
+
+<label><h2><b>Teacher Name : </b></h2></label>
+<b class="fs-3 ml-auto"><%= @teacher.name %></b> </br>
+<br/>
+
+<%= link_to "Back", :controller => "teacher", :action => "index", class:"btn btn-primary" %>
+</div>

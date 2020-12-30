@@ -1,0 +1,38 @@
+<%= render "admin/adminheader" %>
+<div class="container" style="width:60%; position:relative; top:100px;">
+<br/>
+
+
+<h3><b>Teachers Details</b></h3>
+<br/>
+<div class="container-fluid">
+<table class="table table-hover">
+  <thead class="thead-dark table-info">
+    <tr>
+      <th scope="col">EmpId</th>
+      <th scope="col">Name</th>
+      <th scope="col">Class</th>
+      <th scope="col">BloodGroup</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @teacher.each do |teacher| %>
+    <tr>
+        <td><%= teacher.empid %></td>
+      <td><%= teacher.name %></td>
+      <td><%= teacher.classroom %></td>
+      <td><%= teacher.bloodgroup %></td>
+      <td><%= link_to "Show", controller:"teacher", action:"show", id:teacher.id %></td>
+      <td><%= link_to "Edit", controller:"teacher", action:"edit", id:teacher.id %></td>
+      <td><%= link_to "Delete", teacher_path(teacher.id), :method => :delete, :data => {:confirm => "Are you sure to delete #{teacher.name} Details "}  %></td>
+      </tr>
+<% end %>
+  </tbody>
+</table>
+<br/>
+<%= link_to "Create Teacher", new_teacher_path, class:"btn btn-primary" %>
+</div>
+</div>

@@ -1,0 +1,53 @@
+<%= render "admin/adminheader" %>
+
+<div class="container" style="width:60%; position:relative; top:100px;">
+<br/>
+
+<label><h2><b>Student Name : </b></h2></label>
+<b class="fs-3 ml-auto"><%= @student.name %></b> </br>
+<br/>
+<div class="container-fluid">
+<table class="table table-hover">
+  <thead class="thead-dark table-info">
+    <tr>
+      <th scope="col">Subject</th>
+      <th scope="col">Mark</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td><b>Tamil</b></td>
+         <td><%= @student.mark1 %></td>
+      </tr>
+      <tr>
+        <td><b>English</b></td>
+         <td><%= @student.mark2 %></td>
+      </tr>
+      <tr>
+        <td><b>Maths</b></td>
+         <td><%= @student.mark3 %></td>
+      </tr>
+      <tr>
+        <td><b>Science</b></td>
+         <td><%= @student.mark4 %></td>
+      </tr>
+      <tr>
+        <td><b>Social</b></td>
+         <td><%= @student.mark5 %></td>
+      </tr>
+      <tr class="thead-dark table-info" >
+        <td><b>Total</b></td>
+         <td><%= @student.total %></td>
+      </tr>
+      <tr class="thead-dark table-info" >
+      <td><b>Grade</b></td>
+       <td><%= @student.grade %></td>
+    </tr>
+  </tbody>
+</table>
+<br/>
+<center class="fs-4" ><b>GRADE- A : Very Good  / GRADE- B : Good  / GRADE- C : Average  / GRADE- F : Fail</b></center>  
+<br/>
+<%= link_to "Back", :controller => "student", :action => "index", class:"btn btn-primary" %>
+</div>
+</div>

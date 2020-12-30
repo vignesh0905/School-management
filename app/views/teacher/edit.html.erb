@@ -1,0 +1,36 @@
+
+<%= render "admin/adminheader" %>
+<div class="container" style="width:60%; position:relative; top:100px; z-index:1;">
+<br/>
+<h3><b>Teacher Information<b></h3>
+<br/>
+<%= form_for @teacher, url: "/teacher/#{@teacher.id}", method: "PUT" do |d| %>
+
+    <div class="form-group">
+      <%= d.label :EmpId %>
+      <%= d.text_field :empid, class:"form-control", placeholder:"Enter the EmpId" %>
+    </div><br/>
+
+    <div class="form-group">
+    <%= d.label :Name %>
+    <%= d.text_field :name, class:"form-control", placeholder:"Enter the Name" %>
+    </div><br/>
+
+  <div class="form-group">
+  <%= d.label :Class %>
+  <%= d.select :classroom, Standard.all.map{ |std| [std.classroom, std.classroom ]}, include_blank: true %>
+  </div><br/>
+
+  <div class="form-group">
+  <%= d.label :Bloodgroup %>
+  <%= d.select :bloodgroup, Blood.all.map{ |b| [b.bloodname, b.bloodname]}, include_blank: true %>
+  </div><br/>
+
+  <div class="form-group">
+  <%= d.label :Usertype %>
+  <%= d.select(:usertype, options_for_select([["STUDENT", "STUDENT"], ["TEACHER", "TEACHER"]]), include_blank: true) %>
+  </div><br/>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <% end %>
+</div>

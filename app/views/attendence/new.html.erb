@@ -1,0 +1,19 @@
+<%= render "admin/adminheader" %>
+<div class="container" style="width:60%; position:relative; top:100px; z-index:0;">
+<br/>
+<h3><b>Student Information<b></h3>
+<br/>
+<%= form_for @attendence, url: "/attendence", method: "POST" do |d| %>
+    <div class="form-group">
+    <%= d.label :Teacher %>
+    <%= d.select :teacher_id, Teacher.all.map{ |teach| [teach.name, teach.id ]}, include_blank: true %>
+    </div><br/>
+
+    <div class="form-group">
+    <%= d.label :students %>
+    <%= collection_select(:attendence, :student_id, Student.all, :id, :name, {}, {:multiple => true} ) %>
+    </div><br/>
+
+    <button type="submit" class="btn btn-primary">Submit</button> 
+<% end %>   
+</div>
